@@ -198,3 +198,7 @@ h4, h6, p, a, button {
   color: #ffffff;
 }
 
+a:hover{
+  text-decoration: underline;
+  text-decoration-color: #ffffff;
+}
