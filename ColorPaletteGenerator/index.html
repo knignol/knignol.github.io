@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>ColorPalette</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body style="background-color: #cdd2d5;">
+    <header>
+        <h1 class="display-2 text-center shadow" style="padding-top: 10px;padding-bottom: 10px;background-color: #96a0a6;">Color Palette Generator</h1>
+    </header>
+    <main>
+        <div class="row" style="padding: 75px;padding-bottom: 50px;">
+            <div class="col">
+                <h1 class="text-center" style="font-family: Roboto, sans-serif;font-size: 30px;">Enter A Hex Value Or Color To Generate A Color Palette</h1>
+            </div>
+        </div>
+        <div class="row" style="padding: 30px;">
+            <div class="col text-center">
+                <form><input class="shadow form-control d-inline-block" type="text" id="input" style="border-radius: 25px;text-align: center;width: 50%;" placeholder="ex: ff0000, blue"><button id="generate" class="btn shadow d-inline-block" type="button" style="margin: 15px;border-radius: 25px; background-color: #a4aaaa" onclick="generateColors(document.getElementById('input').value)">Generate</button></form>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 10px;margin-bottom: 0px;margin-right: 0px;margin-left: 0px;">
+            <div class="col text-center">
+                <div class="card shadow" id="panel-small">
+                    <div class="card-header" style="background-color: #a4aaaa;">
+                        <h5 class="mb-0">Lighten</h5>
+                    </div>
+                    <div class="card-body d-xl-flex justify-content-xl-center" style="background-color: #cdd5d5;">
+                        <div class="d-inline-block lighten" id="color-block" style="background-color: #ff6666;"></div>
+                    </div>
+                    <div class="card-footer" style="background-color: #a4aaaa;"><small class="lighten-text">#ff6666</small></div>
+                </div>
+            </div>
+            <div class="col text-center">
+                <div class="card shadow" id="panel-small">
+                    <div class="card-header" style="background-color: #a4aaaa;">
+                        <h5 class="mb-0">Darken</h5>
+                    </div>
+                    <div class="card-body d-xl-flex justify-content-xl-center" style="background-color: #cdd5d5;">
+                        <div class="d-inline-block darken" id="color-block" style="background-color: #990000;"></div>
+                    </div>
+                    <div class="card-footer" style="background-color: #a4aaaa;"><small id="color-block" class="darken-text">#990000</small></div>
+                </div>
+            </div>
+            <div class="col text-center">
+                <div class="card shadow" id="panel-small">
+                    <div class="card-header" style="background-color: #a4aaaa;">
+                        <h5 class="mb-0">Complement</h5>
+                    </div>
+                    <div class="card-body d-xl-flex justify-content-xl-center" style="background-color: #cdd5d5;">
+                        <div class="d-inline-block complement" id="color-block" style="background-color: #00ffff;"></div>
+                    </div>
+                    <div class="card-footer" style="background-color: #a4aaaa;"><small class="complement-text">#00ffff</small></div>
+                </div>
+            </div>
+            <div class="col text-center">
+                <div class="card shadow" id="panel-small">
+                    <div class="card-header" style="background-color: #a4aaaa;">
+                        <h5 class="mb-0">Desaturate</h5>
+                    </div>
+                    <div class="card-body d-xl-flex justify-content-xl-center" style="background-color: #cdd5d5;">
+                        <div class="d-inline-block desaturate" id="color-block" style="background-color: #e61919;"></div>
+                    </div>
+                    <div class="card-footer" style="background-color: #a4aaaa;"><small class="desaturate-text">#e61919</small></div>
+                </div>
+            </div>
+            <div class="col text-center">
+                <div class="card shadow" id="panel-small">
+                    <div class="card-header" style="background-color: #a4aaaa;">
+                        <h5 class="mb-0">Grayscale</h5>
+                    </div>
+                    <div class="card-body d-xl-flex justify-content-xl-center" style="background-color: #cdd5d5;">
+                        <div class="d-inline-block grayscale" id="color-block" style="background-color: #808080;"></div>
+                    </div>
+                    <div class="card-footer" style="background-color: #a4aaaa;"><small class="grayscale-text">#808080</small></div>
+                </div>
+            </div>
+            <div class="col text-center">
+                <div class="card shadow" id="panel-small">
+                    <div class="card-header" style="background-color: #a4aaaa;">
+                        <h5 class="mb-0">Brighten</h5>
+                    </div>
+                    <div class="card-body d-xl-flex justify-content-xl-center" style="background-color: #cdd5d5;">
+                        <div class="d-inline-block brighten" id="color-block" style="background-color: #ff3333;"></div>
+                    </div>
+                    <div class="card-footer" style="background-color: #a4aaaa;"><small class="brighten-text">#ff3333</small></div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 10px;margin-right: 0px;margin-left: 0px;">
+            <div class="col text-center">
+                <div class="card shadow" id="panel-large">
+                    <div class="card-header" style="background-color: #a4aaaa;">
+                        <h5 class="mb-0">Triad</h5>
+                    </div>
+                    <div class="card-body d-xl-flex justify-content-xl-center" style="background-color: #cdd5d5;">
+                        <div class="d-inline-block triad-0" id="color-block" style="background-color: #ff0000;"></div>
+                        <div class="d-inline-block triad-1" id="color-block" style="background-color: #00ff00;"></div>
+                        <div class="d-inline-block triad-2" id="color-block" style="background-color: #0000ff;"></div>
+                    </div>
+                    <div class="card-footer" style="background-color: #a4aaaa;"><small class="triad-0-text" style="padding-right: 25px;padding-left: 25px;">#ff0000</small><small class="triad-1-text" style="padding-right: 25px;padding-left: 25px;">#00ff00</small><small class="triad-2-text" style="padding-right: 25px;padding-left: 25px;">#0000ff</small></div>
+                </div>
+            </div>
+            <div class="col text-center">
+                <div class="card shadow" id="panel-large">
+                    <div class="card-header" style="background-color: #a4aaaa;">
+                        <h5 class="mb-0">Tetrad</h5>
+                    </div>
+                    <div class="card-body d-xl-flex justify-content-xl-center" style="background-color: #cdd5d5;">
+                        <div class="d-inline-block tetrad-0" id="color-block" style="background-color: #ff0000;"></div>
+                        <div class="d-inline-block tetrad-1" id="color-block" style="background-color: #80ff00;"></div>
+                        <div class="d-inline-block tetrad-2" id="color-block" style="background-color: #00ffff;"></div>
+                        <div class="d-inline-block tetrad-3" id="color-block" style="background-color: #7f00ff;"></div>
+                    </div>
+                    <div class="card-footer" style="background-color: #a4aaaa;"><small class="tetrad-0-text" style="padding-right: 25px;padding-left: 25px;">#ff0000</small><small class="tetrad-1-text" style="padding-right: 25px;padding-left: 25px;">#80ff00</small><small class="tetrad-2-text" style="padding-right: 25px;padding-left: 25px;">#00ffff</small>
+                        <small
+                            class="tetrad-3-text" style="padding-right: 25px;padding-left: 25px;">#7f00ff</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col text-center">
+                <div class="card shadow" id="panel-large">
+                    <div class="card-header" style="background-color: #a4aaaa;">
+                        <h5 class="mb-0">Split Complements</h5>
+                    </div>
+                    <div class="card-body d-xl-flex justify-content-xl-center" style="background-color: #cdd5d5;">
+                        <div class="d-inline-block split-0" id="color-block" style="background-color: #ff0000;"></div>
+                        <div class="d-inline-block split-1" id="color-block" style="background-color: #ccff00;"></div>
+                        <div class="d-inline-block split-2" id="color-block" style="background-color: #0066ff;"></div>
+                    </div>
+                    <div class="card-footer" style="background-color: #a4aaaa;"><small class="split-0-text" style="padding-right: 25px;padding-left: 25px;">#ff0000</small><small class="split-1-text" style="padding-right: 25px;padding-left: 25px;">#ccff00</small><small class="split-2-text" style="padding-right: 25px;padding-left: 25px;">#0066ff</small></div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 10px;margin-right: 0px;margin-left: 0px;">
+            <div class="col text-center">
+                <div class="card shadow" id="panel-large">
+                    <div class="card-header" style="background-color: #a4aaaa;">
+                        <h5 class="mb-0">Monochromatic</h5>
+                    </div>
+                    <div class="card-body d-xl-flex justify-content-xl-center" style="background-color: #cdd5d5;">
+                        <div class="d-inline-block mono-0" id="color-block" style="background-color: #ff0000;"></div>
+                        <div class="d-inline-block mono-1" id="color-block" style="background-color: #2a0000;"></div>
+                        <div class="d-inline-block mono-2" id="color-block" style="background-color: #550000;"></div>
+                        <div class="d-inline-block mono-3" id="color-block" style="background-color: #800000;"></div>
+                        <div class="d-inline-block mono-4" id="color-block" style="background-color: #aa0000;"></div>
+                        <div class="d-inline-block mono-5" id="color-block" style="background-color: #d40000;"></div>
+                    </div>
+                    <div class="card-footer" style="background-color: #a4aaaa;"><small class="mono-text-0" style="padding-right: 25px;padding-left: 25px;">#ff0000</small><small class="mono-text-1" style="padding-right: 25px;padding-left: 25px;">#2a0000</small><small class="mono-text-2" style="padding-right: 25px;padding-left: 25px;">#550000</small>
+                        <small
+                            class="mono-text-3" style="padding-right: 25px;padding-left: 25px;">#800000</small><small class="mono-text-4" style="padding-right: 25px;padding-left: 25px;">#aa0000</small><small class="mono-text-5" style="padding-right: 25px;padding-left: 25px;">#d40000</small></div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 10px;margin-right: 0px;margin-left: 0px;margin-bottom: 25px;">
+            <div class="col text-center">
+                <div class="card shadow" id="panel-large">
+                    <div class="card-header" style="background-color: #a4aaaa;">
+                        <h5 class="mb-0">Analogous</h5>
+                    </div>
+                    <div class="card-body d-xl-flex justify-content-xl-center" style="background-color: #cdd5d5;">
+                        <div class="d-inline-block ana-0" id="color-block" style="background-color: #ff0000;"></div>
+                        <div class="d-inline-block ana-1" id="color-block" style="background-color: #ff0066;"></div>
+                        <div class="d-inline-block ana-2" id="color-block" style="background-color: #ff0000;"></div>
+                        <div class="d-inline-block ana-3" id="color-block" style="background-color: #ff3300;"></div>
+                        <div class="d-inline-block ana-4" id="color-block" style="background-color: #ff6600;"></div>
+                        <div class="d-inline-block ana-5" id="color-block" style="background-color: #ff6600;"></div>
+                    </div>
+                    <div class="card-footer" style="background-color: #a4aaaa;"><small class="ana-text-0" style="padding-right: 25px;padding-left: 25px;">#ff0000</small><small class="ana-text-1" style="padding-right: 25px;padding-left: 25px;">#ff0066</small><small class="ana-text-2" style="padding-right: 25px;padding-left: 25px;">#ff0033</small>
+                        <small
+                            class="ana-text-3" style="padding-right: 25px;padding-left: 25px;">#ff0000</small><small class="ana-text-4" style="padding-right: 25px;padding-left: 25px;">#ff3300</small><small class="ana-text-5" style="padding-right: 25px;padding-left: 25px;">#ff6600</small></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/generate.js"></script>
+    <script src="assets/js/tinycolor.js"></script>
+</body>
+
+</html>

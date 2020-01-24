@@ -1,0 +1,25 @@
+#panel-small {
+  margin-top: 15px;
+}
+
+#panel-large {
+  margin-top: 15px;
+}
+
+#color-block {
+  width: 100px;
+  height: 100px;
+  border-radius: 20px;
+  margin: 5px;
+}
+
+#panel-small {
+  border-width: 5px;
+  border-radius: 10px;
+}
+
+#panel-large {
+  border-width: 5px;
+  border-radius: 10px;
+}
+
