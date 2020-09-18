@@ -167,7 +167,7 @@
 }
 
 #background {
-  background: linear-gradient(120deg, #FC466B 0%, #6f42c1 70%);
+  background: linear-gradient(120deg, #bdc3c7 0%, #2c3e50 70%);
 }
 
 #portfolio {
@@ -202,3 +202,4 @@ a:hover{
   text-decoration: underline;
   text-decoration-color: #ffffff;
 }
+
